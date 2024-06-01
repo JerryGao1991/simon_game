@@ -1,0 +1,115 @@
+body {
+  background-color: #011F3F;;
+}
+
+.title.container {
+  width: 90%;
+  margin: 6rem auto;
+
+}
+
+.title__text {
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  font-size: 3rem;
+  color:#FEF2BF;
+  text-transform: capitalize;
+}
+
+.main.container {
+  width: 50%;
+  margin: auto;
+}
+
+.main__sub {
+  text-align: center;
+}
+
+.main__block {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin: 1.5rem;
+  border: 10px solid black;
+  border-radius: 20%;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.opacity {
+  opacity: 0.3;
+}
+
+/* .container {
+  display: inline-block;
+  background-color: red;
+  width: 4rem;
+  height: 4rem;
+} */
+
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+}
+
+.errorBackground {
+  background-color: red;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .title.container {
+    width: 100%;
+    margin: 3rem auto;
+  }
+
+  .title__text {
+    font-size: 2rem;
+  }
+
+  .main.container {
+    width: 80%;
+  }
+
+  .main__block {
+    width: 150px;
+    height: 150px;
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title.container {
+    margin: 2rem auto;
+  }
+
+  .title__text {
+    font-size: 1.5rem;
+  }
+
+  .main.container {
+    width: 100%;
+  }
+
+  .main__block {
+    width: 100px;
+    height: 100px;
+    margin: 0.5rem;
+  }
+}
