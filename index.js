@@ -142,11 +142,11 @@ const startGame = () => {
 
 // key press event listener:
 document.addEventListener("touchstart", startGame);
-document.addEventListener("click", startGame);
+// document.addEventListener("click", startGame);
 
 
 // click event listener:
 document.querySelectorAll(".main__block").forEach((element) => {
   element.addEventListener("click", handleClick);
-  element.addEventListener("touchstart", handleClick);
+  // element.addEventListener("touchstart", handleClick);
 })
