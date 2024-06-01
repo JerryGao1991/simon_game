@@ -18,7 +18,7 @@ const flashColor = (color) => {
   element.classList.add("opacity");
   setTimeout(() => {
     element.classList.remove("opacity");
-  }, 150);
+  }, 250);
 };
 
 
@@ -58,10 +58,9 @@ const colorPressed = (colorMatch) => {
 
 // end game function: 
 const endGame = () => {
-  document.querySelector("h1").innerHTML = "🎉High five! You nail it 🎉" 
+  document.querySelector("h1").innerHTML = "🎉 High five! You nail it 🎉" 
   document.querySelectorAll(".main__block").forEach((block) => {
-    block.removeEventListener("click", handleClick);  
-    block.removeEventListener("touchstart", handleClick); 
+    block.removeEventListener("touchstart", handleClick);  
   })
 };
 
@@ -147,6 +146,6 @@ document.addEventListener("touchstart", startGame);
 
 // click event listener:
 document.querySelectorAll(".main__block").forEach((element) => {
-  element.addEventListener("click", handleClick);
-  // element.addEventListener("touchstart", handleClick);
+  // element.addEventListener("click", handleClick);
+  element.addEventListener("touchstart", handleClick);
 })
