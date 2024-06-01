@@ -18,7 +18,7 @@ const flashColor = (color) => {
   element.classList.add("opacity");
   setTimeout(() => {
     element.classList.remove("opacity");
-  }, 250);
+  }, 50);
 };
 
 
