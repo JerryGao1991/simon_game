@@ -68,10 +68,7 @@ const endGame = () => {
 // game Over function:
 const gameOver = () => {
   document.querySelector("h1").innerHTML = "Game Over, Press Any Key to Restart";
-  document.querySelector("body").classList.add("errorBackground");
-  setTimeout(() => {
-    document.querySelector("body").classList.remove("errorBackground");
-  }, 200);  
+  document.querySelector("body").classList.add("errorBackground"); 
   resetGame();
 };
 
@@ -129,6 +126,7 @@ const handleClick = (event) => {
 // start game function:
 const startGame = () => {
   if (currentLevel === 0) {
+    document.querySelector("body").classList.remove("errorBackground"); 
     gameStarted = true;
     const randomColor = getRandomColor();
     matchList.push(randomColor); 
