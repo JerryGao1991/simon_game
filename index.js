@@ -59,7 +59,7 @@ const colorPressed = (colorMatch) => {
 const endGame = () => {
   document.querySelector("h1").innerHTML = "🎉 High five! You nail it 🎉" 
   document.querySelectorAll(".main__block").forEach((block) => {
-    block.removeEventListener("touchstart", handleClick);  
+    block.removeEventListener("click", handleClick);  
   })
 };
 
@@ -140,12 +140,12 @@ const startGame = () => {
  
 
 // key press event listener:
-document.addEventListener("touchstart", startGame);
-// document.addEventListener("click", startGame);
+// document.addEventListener("touchstart", startGame);
+document.addEventListener("click", startGame);
 
 
 // click event listener:
 document.querySelectorAll(".main__block").forEach((element) => {
-  // element.addEventListener("click", handleClick);
-  element.addEventListener("touchstart", handleClick);
+  element.addEventListener("click", handleClick);
+  // element.addEventListener("touchstart", handleClick);
 })
