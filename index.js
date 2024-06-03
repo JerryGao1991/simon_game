@@ -72,7 +72,7 @@ const gameOver = () => {
   setTimeout(() => {
     document.querySelector("body").classList.remove("errorBackground");
   }, 200);    
-  resetGame();
+  // resetGame();
 };
 
 
