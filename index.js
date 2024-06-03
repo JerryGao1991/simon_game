@@ -10,6 +10,7 @@ const getRandomColor = () => {
   return colorList[randomNum];
 };
 
+
 // color flash function:
 const flashColor = (color) => {
   const element = document.querySelector("." + color);
@@ -19,12 +20,14 @@ const flashColor = (color) => {
   }, 50);
 };
 
+
 // update level function:
 const updateLevel = (level) => {
-  setTimeout(() => {
-    document.querySelector(".title__text").innerHTML = `level ${level}`;
+  setTimeout( () => {
+    document.querySelector(".title__text").innerHTML = `level ${level}`;  
   }, 200);
-};
+};  
+
 
 // get colorMatch function:
 const getColorMatch = (element) => {
@@ -36,10 +39,11 @@ const getColorMatch = (element) => {
       return "blue";
     case "rgb(255, 255, 0)":
       return "yellow";
-    default:
+    default: 
       return "red";
-  }
+  }   
 };
+
 
 // color pressed function:
 const colorPressed = (colorMatch) => {
@@ -47,94 +51,101 @@ const colorPressed = (colorMatch) => {
   element.classList.add("pressed");
   setTimeout(() => {
     element.classList.remove("pressed");
-  }, 100);
+  },100);
 };
 
-// end game function:
+
+// end game function: 
 const endGame = () => {
-  document.querySelector("h1").innerHTML = "🎉 High five! You nail it 🎉";
+  document.querySelector("h1").innerHTML = "🎉 High five! You nail it 🎉" 
   document.querySelectorAll(".main__block").forEach((block) => {
-    block.removeEventListener("touchstart", handleClick);
-  });
+    block.removeEventListener("touchstart", handleClick);  
+  })
 };
+
 
 // game Over function:
 const gameOver = () => {
   document.querySelector("h1").innerHTML = "Game Over, Press Any Key to Restart";
-  document.querySelector("body").classList.add("errorBackground");
+  document.querySelector("body").classList.add("errorBackground"); 
 
   setTimeout(() => {
     document.querySelector("body").classList.remove("errorBackground");
-  }, 200);
-  gameStarted = false; // 确保游戏结束后无法继续点击
+  }, 200);    
+  resetGame();
 };
+
 
 // reset the game function:
 const resetGame = () => {
   checkList = [];
   matchList = [];
   currentLevel = 0;
+  gameStarted = false;  
 };
 
-// start game function:
-const startGame = () => {
-  if (!gameStarted) {
-    document.querySelector("body").classList.remove("errorBackground"); // 确保在游戏重新开始时移除 errorBackground
-    resetGame(); // 重置游戏状态
-    gameStarted = true;
-    const randomColor = getRandomColor();
-    matchList.push(randomColor);
-    flashColor(randomColor);
-    updateLevel(1);
-    currentLevel = 1;
-  }
-};
 
 // next level function:
 const nextLevel = () => {
   const randomColor = getRandomColor();
   matchList.push(randomColor);
-
+  
   setTimeout(() => {
     document.querySelector("h1").innerHTML = "Level " + matchList.length;
-  }, 900);
-
+  }, 900)
+  
   setTimeout(() => {
     flashColor(randomColor);
-  }, 900);
-
+  }, 900)
+  
   checkList = [];
 };
+
 
 const checkColorMatch = (colorMatch) => {
   checkList.push(colorMatch);
   if (checkList[checkList.length - 1] === matchList[checkList.length - 1]) {
     colorPressed(colorMatch);
-    if (checkList.length == matchList.length) {
+    if (checkList.length == matchList.length) {              
       if (checkList.length === 10) {
         endGame();
-      } else {
+      } else {  
         nextLevel();
-      }
-    }
+      }  
+    }          
   } else {
-    gameOver();
-  }
+    gameOver();     
+  }  
 };
 
 // add event Listener function:
 const handleClick = (event) => {
-  if (!gameStarted) {
-    return;
-  }
+  if (!gameStarted) {return};
   const colorMatch = getColorMatch(event.target);
   checkColorMatch(colorMatch);
 };
 
+
+// start game function:
+const startGame = () => {
+  if (currentLevel === 0) {
+    gameStarted = true;
+    const randomColor = getRandomColor();
+    matchList.push(randomColor); 
+    flashColor(randomColor);
+    updateLevel(1);
+    currentLevel = 1;
+  }
+};
+ 
+
 // key press event listener:
 document.addEventListener("touchstart", startGame);
+// document.addEventListener("click", startGame);
+
 
 // click event listener:
 document.querySelectorAll(".main__block").forEach((element) => {
+  // element.addEventListener("click", handleClick);
   element.addEventListener("touchstart", handleClick);
-});
+})
